@@ -5,10 +5,12 @@ import { useState, useEffect } from "react";
 const WEEKDAY_ROWS = ['R', 'D', 'U'];
 export const WEEKDAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
+
+
+
 const Table = ({ weekday, planned = {}, actual = {}, handleChange }) => {
     return (
-
-        <div >
+        <div className={`table-${weekday.toLowerCase()}`}>
             <h4 className="days">{weekday}</h4>
             <table>
                 <thead >
@@ -23,7 +25,7 @@ const Table = ({ weekday, planned = {}, actual = {}, handleChange }) => {
                     {WEEKDAY_ROWS.map(row => (
                         <tr key={row}>
                             <td className="RDU">{row}</td>
-                            <td >
+                            <td className="boxSize">
                                 <input
                                     className="Input"
                                     type="number"
@@ -31,7 +33,7 @@ const Table = ({ weekday, planned = {}, actual = {}, handleChange }) => {
                                     onChange={e => handleChange(weekday, row, 'planned', e.target.value)}
                                 />
                             </td>
-                            <td>
+                            <td className="boxSize">
                                 <input
                                     className="Input"
                                     type="number"
@@ -47,8 +49,6 @@ const Table = ({ weekday, planned = {}, actual = {}, handleChange }) => {
                             }>
                                 {(!actual[row] || !planned[row]) ? "" : ((actual[row] / planned[row]) * 100).toFixed(0) + "%"}
                             </td>
-
-
                         </tr>
                     ))}
                 </tbody>
@@ -57,8 +57,13 @@ const Table = ({ weekday, planned = {}, actual = {}, handleChange }) => {
     );
 };
 
+
+
 const WeeklyTables = ({ extractData, data }) => {
     const [localData, setLocalData] = useState(data);
+    
+
+    
 
     useEffect(() => {
         const dataFromLocalStorage = localStorage.getItem('data');
@@ -67,10 +72,10 @@ const WeeklyTables = ({ extractData, data }) => {
         }
     }, []);
 
+
     const handleSave = () => {
         localStorage.setItem('data', JSON.stringify(localData));
     };
-
     const handleChange = (weekday, row, field, value) => {
         let newData = { ...localData };
         if (!newData[weekday]) {
@@ -80,42 +85,12 @@ const WeeklyTables = ({ extractData, data }) => {
         setLocalData(newData);
         extractData(newData);
     };
-
-    const printWeeklyProgress = () => {
-        let weeklyPlannedR = 0;
-        let weeklyPlannedD = 0;
-        let weeklyPlannedU = 0;
-        let weeklyActualR = 0;
-        let weeklyActualD = 0;
-        let weeklyActualU = 0;
-        WEEKDAYS.forEach((weekday) => {
-            weeklyPlannedR += localData[weekday] ? localData[weekday].planned.R : 0;
-            weeklyPlannedD += localData[weekday] ? localData[weekday].planned.D : 0;
-            weeklyPlannedU += localData[weekday] ? localData[weekday].planned.U : 0;
-            weeklyActualR += localData[weekday] ? localData[weekday].actual.R : 0;
-            weeklyActualD += localData[weekday] ? localData[weekday].actual.D : 0;
-            weeklyActualU += localData[weekday] ? localData[weekday].actual.U : 0;
-        });
-        const weeklyProgressR = ((weeklyActualR / weeklyPlannedR) * 100).toFixed(0);
-        const weeklyProgressD = ((weeklyActualD / weeklyPlannedD) * 100).toFixed(0);
-        const weeklyProgressU = ((weeklyActualU / weeklyPlannedU) * 100).toFixed(0);
-        console.log(`Weekly Progress R: ${weeklyProgressR}%, Weekly Progress D: ${weeklyProgressD}%, Weekly Progress U: ${weeklyProgressU}%`);
-    };
-    
-
-
     return (
         <div>
             <div>
                 <div className="Tables" >
-                    {WEEKDAYS.map((weekday, index) => (
-                        <div
-                            key={weekday}
-                            style={{
-                                gridRow: Math.floor(index / 3) + 1,
-                                gridColumn: (index % 3) + 1
-                            }}
-                        >
+                    {WEEKDAYS.map((weekday) => (
+                        <div key={weekday}>
                             <Table
                                 key={weekday}
                                 weekday={weekday}
@@ -125,16 +100,14 @@ const WeeklyTables = ({ extractData, data }) => {
                             />
                         </div>
                     ))}
-                </div>
-                <div>
-                <button className="success" onClick={handleSave}>Save</button>
-                <button onClick={printWeeklyProgress}>Print Weekly Progress</button>
+                    <div className="buttons" >
+                        <button className="success" onClick={handleSave}>Save</button>
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
-
 export default WeeklyTables;
 
 

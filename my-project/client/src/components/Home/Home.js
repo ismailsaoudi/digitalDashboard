@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import Clock from '../Clock/Clock';
 import WeekdayTables from "../Tables/Tables";
 import Modal from 'react-modal';
+import S5popUp from "../S5popUp/S5popUp";
 import alertBreak from '../assets/alertBreak.mp3'
 import "./Home.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const customStyles = {
@@ -22,7 +22,7 @@ const customStyles = {
   },
   h2: {
     textAlign: 'center',
-    fontSize: '16rem',
+    fontSize: '10rem',
     color: '#FDC72E',
     margin: '4rem 0',
   },
@@ -42,7 +42,16 @@ const customStyles = {
 function Home() {
   const [data, setData] = useState({});
   const [isOpen, setIsOpen] = useState(false);
+
   const [audio] = useState(new Audio(alertBreak)); // create an audio object with the sound file
+
+  const openModal = () => {
+    setIsOpen(true);
+    audio.play(); // play the sound
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 900000);
+  }
 
 
   useEffect(() => {
@@ -53,15 +62,6 @@ function Home() {
   }, []);
 
 
-
-  const openModal = () => {
-    setIsOpen(true);
-    audio.play(); // play the sound
-    setTimeout(() => {
-      setIsOpen(false);
-    }, 60000);
-  }
-
   function getTimeTillNextPopup(hours, minutes) {
     let currentDate = new Date();
     let nextPopup = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), hours, minutes, 0, 0) - currentDate;
@@ -70,8 +70,6 @@ function Home() {
     }
     return nextPopup;
   }
-
-
   useEffect(() => {
     // Set timeout for the first popup
     setTimeout(() => {
@@ -80,18 +78,14 @@ function Home() {
     // Set timeouts for the second  popup
     setTimeout(() => {
       openModal();
-    }, getTimeTillNextPopup(11, 45));
-
-    // Set timeouts for the  third popup
+    }, getTimeTillNextPopup(9, 45));
+    // Set timeouts for the third popup
     setTimeout(() => {
       openModal();
-    }, getTimeTillNextPopup(14, 0));
+    }, getTimeTillNextPopup(13, 8));
 
   },
-
     [openModal]);
-
-
 
 
   const extractData = (data) => {
@@ -101,17 +95,20 @@ function Home() {
 
   return (
     <section>
-        <div>
-          <Clock />
-        </div>
-        <div>
-          <WeekdayTables extractData={data => extractData(data)} data={data} />
-        </div>
 
-        <Modal isOpen={isOpen} style={customStyles}>
-          <h2 style={customStyles.h2}>BREAK TIME <p> &#128512; </p> </h2>
-          <button style={customStyles.button} onClick={() => setIsOpen(false)}>CLOSE</button>
-        </Modal>
+      <div>
+        <S5popUp />
+      </div>
+      <div>
+        <Clock />
+      </div>
+      <div>
+        <WeekdayTables extractData={data => extractData(data)} data={data} />
+      </div>
+      <Modal isOpen={isOpen} style={customStyles}>
+        <h2 style={customStyles.h2}>BREAK TIME <p> &#9749; &#129386; </p> </h2>
+        <button style={customStyles.button} onClick={() => setIsOpen(false)}>CLOSE</button>
+      </Modal>
     </section>
   );
 }
