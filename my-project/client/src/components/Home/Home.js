@@ -82,7 +82,7 @@ function Home() {
     // Set timeouts for the third popup
     setTimeout(() => {
       openModal();
-    }, getTimeTillNextPopup(13, 8));
+    }, getTimeTillNextPopup(14, 0));
 
   },
     [openModal]);

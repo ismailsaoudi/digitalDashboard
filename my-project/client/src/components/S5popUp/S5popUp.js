@@ -64,7 +64,7 @@ class S5popUp extends React.Component {
   componentDidMount() {
     setInterval(() => {
         const S5now = new Date();
-        if (S5now.getHours() === 16 && S5now.getMinutes() === 37) {
+        if (S5now.getHours() === 16 && S5now.getMinutes() === 19) {
             this.S5openModal();
             setTimeout(() => {
                 this.S5closeModal();
