@@ -2,7 +2,6 @@ import React from 'react';
 import Modal from 'react-modal';
 import alertBreak from '../assets/alertBreak.mp3'
 
-
 const customStyles = {
   content: {
     top: '50%',
@@ -42,7 +41,6 @@ const customStyles = {
   }
 };
 
-
 class S5popUp extends React.Component {
   constructor(props) {
     super(props);
@@ -62,31 +60,34 @@ class S5popUp extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
-        const S5now = new Date();
-        if (S5now.getHours() === 12 && S5now.getMinutes() === 9 && S5now.getSeconds() === 0) {
-            this.S5openModal();
-            setTimeout(() => {
-                this.S5closeModal();
-            }, 900000);
-        }
-    }, 60000);
+    const S5now = new Date();
+    const S5time = new Date();
+    S5time.setHours(16);
+    S5time.setMinutes(0);
+    S5time.setSeconds(0);
+    if (S5now.getHours() > 13 || (S5now.getHours() === 16 && S5now.getMinutes() > 0)) {
+      S5time.setDate(S5now.getDate() + 1);
+    }
+    setTimeout(() => {
+      this.S5openModal();
+    }, S5time.getTime() - S5now.getTime());
   }
 
   render() {
     return (
       <div>
-<button onClick={this.S5openModal}  style={customStyles.button}>open</button>
-
-        <Modal 
+        <Modal
           isOpen={this.state.S5modalOpen}
-          onRequestClose={this.S5closeModal} 
-          style={customStyles}>
-        <h2 style={customStyles.h2}> THANK YOU FOR YOUR HARD WORK  </h2>
-        <h2 style={customStyles.h2}> S5 TIME !  </h2>
-        <p style={customStyles.p}> ♻ </p>
-        <button onClick={this.S5closeModal}  style={customStyles.button}>Close</button>
-      </Modal>
+          onRequestClose={this.S5closeModal}
+          style={customStyles}
+        >
+          <h2 style={customStyles.h2}> THANK YOU FOR YOUR HARD WORK  </h2>
+          <h2 style={customStyles.h2}> S5 TIME !  </h2>
+          <p style={customStyles.p}> ♻ </p>
+          <button onClick={this.S5closeModal} style={customStyles.button}>
+            Close
+          </button>
+        </Modal>
       </div>
     );
   }

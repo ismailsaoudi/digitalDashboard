@@ -85,6 +85,8 @@ body{
    }
 
 .buttons { 
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
   display: grid; 
   grid-template-columns: repeat(4, 1fr); 
   grid-template-rows: 1.4fr 0.8fr repeat(2, 0.9fr);
@@ -108,7 +110,7 @@ body{
  }
 
  .success:hover{
-  background-color: rgb(197, 197, 9);
+  background-color: rgb(109, 109, 231);
  }
 
 .print {

@@ -95,10 +95,7 @@ function Home() {
 
   return (
     <section>
-
-      <div>
         <S5popUp />
-      </div>
       <div>
         <Clock />
       </div>
