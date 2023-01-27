@@ -2,7 +2,7 @@
   "name": "scoreboard",
   "version": "0.1.0",
   "private": true,
-  "homepage": "",
+  "homepage": "https://ismailsaoudi.github.io/digitalDashboard",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
@@ -54,8 +54,8 @@
   "description": "<h2 align=\"center\">   Portfolio Website - v2.0<br/>   <a href=\"http://soumya-jit.tech/\" target=\"_blank\">soumyajit.tech</a> </h2> <div align=\"center\">   <img alt=\"Demo\" src=\"./Images/readme-img1.png\" /> </div>",
   "main": "index.js",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Ismail Saoudi",
+  "license": "MIT",
   "devDependencies": {
     "gh-pages": "^4.0.0"
   }
