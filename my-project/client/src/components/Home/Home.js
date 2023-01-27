@@ -4,7 +4,7 @@ import WeekdayTables from "../Tables/Tables";
 import Modal from 'react-modal';
 import S5popUp from "../S5popUp/S5popUp";
 import alertBreak from '../assets/alertBreak.mp3'
-import "./Home.css"
+import "../../style.css";
 
 
 const customStyles = {

@@ -1,5 +1,5 @@
 import React from "react";
-import "../Home/Home.css";
+import "../../style.css";
 import { useState, useEffect } from "react";
 
 const WEEKDAY_ROWS = ['R', 'D', 'U'];
