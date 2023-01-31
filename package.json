@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://ismailsaoudi.github.io/digitalDashboard",
   "dependencies": {
+    "@react-pdf/renderer": "^3.1.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -18,6 +19,7 @@
     "react-icons": "^4.3.1",
     "react-modal": "^3.16.1",
     "react-parallax-tilt": "^1.7.42",
+    "react-pdf": "^6.2.2",
     "react-router-dom": "^6.6.2",
     "react-scripts": "^5.0.0",
     "react-tsparticles": "^1.42.2",
