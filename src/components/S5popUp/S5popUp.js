@@ -17,7 +17,7 @@ const customStyles = {
   },
   h2: {
     textAlign: 'center',
-    fontSize: '6rem',
+    fontSize: '5rem',
     color: '#FDC72E',
     margin: '4rem 0',
   },
@@ -35,7 +35,7 @@ const customStyles = {
   p: {
 
     textAlign: 'center',
-    fontSize: '8rem',
+    fontSize: '7rem',
     color: '#FDC72E',
     margin: '4rem 0',
   }
@@ -63,9 +63,9 @@ class S5popUp extends React.Component {
     const S5now = new Date();
     const S5time = new Date();
     S5time.setHours(16);
-    S5time.setMinutes(0);
+    S5time.setMinutes(20);
     S5time.setSeconds(0);
-    if (S5now.getHours() > 16 || (S5now.getHours() === 16 && S5now.getMinutes() > 0)) {
+    if (S5now.getHours() > 16 || (S5now.getHours() === 16 && S5now.getMinutes() > 20)) {
       S5time.setDate(S5now.getDate() + 1);
     }
     setTimeout(() => {
@@ -82,7 +82,7 @@ class S5popUp extends React.Component {
           style={customStyles}
         >
           <h2 style={customStyles.h2}> THANK YOU FOR YOUR HARD WORK  </h2>
-          <h2 style={customStyles.h2}> S5 TIME !  </h2>
+          <h2 style={customStyles.h2}> 5S TIME !  </h2>
           <p style={customStyles.p}> ♻ </p>
           <button onClick={this.S5closeModal} style={customStyles.button}>
             Close

@@ -7,6 +7,7 @@ import alertBreak from '../assets/alertBreak.mp3'
 import "../../style.css";
 
 
+
 const customStyles = {
   content: {
     top: '50%',
@@ -95,6 +96,7 @@ function Home() {
 
   return (
     <section>
+     
         <S5popUp />
       <div>
         <Clock />
