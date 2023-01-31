@@ -32,21 +32,21 @@ body{
 
 .Date {
    grid-area: Date;
-   font-size: 50px;
+   font-size: 30px;
    font-weight: bold;
    color: rgb(56, 143, 44);
   }
 
 .Time {
    grid-area: Time;
-   font-size: 80px;
+   font-size: 60px;
    font-weight: bold;
    color: rgb(223, 135, 20);
    }
 
    .Week{
     grid-area: Time;
-   font-size: 60px;
+   font-size: 40px;
    font-weight: bold;
    color: rgb(42, 61, 165);
    }
