@@ -166,7 +166,7 @@ td.boxSize{
  @media print {
   #printable, table, .Date, .Input, .Progress, .RDU, .Week {
     display: inline-block !important;
-    font-size: 100%;
+    font-size: 90%;
     color: rgb(0, 0, 0);
   }
 }
@@ -177,6 +177,7 @@ td.boxSize{
     font-size: 100%;
     align-items: center;
     gap: 10%;
+    
   }
 }
 
