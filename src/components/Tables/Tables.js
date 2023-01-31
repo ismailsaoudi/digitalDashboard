@@ -1,7 +1,7 @@
 import React from "react";
 import "../../style.css";
-import { useState, useEffect } from "react";
 
+import { useState, useEffect } from "react";
 const WEEKDAY_ROWS = ['R', 'D', 'U'];
 export const WEEKDAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
@@ -9,6 +9,7 @@ export const WEEKDAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 
 
 const Table = ({ weekday, planned = {}, actual = {}, handleChange }) => {
+
     return (
         <div className={`table-${weekday.toLowerCase()}`}>
             <h4 className="days">{weekday}</h4>
@@ -61,9 +62,7 @@ const Table = ({ weekday, planned = {}, actual = {}, handleChange }) => {
 
 const WeeklyTables = ({ extractData, data }) => {
     const [localData, setLocalData] = useState(data);
-    
 
-    
 
     useEffect(() => {
         const dataFromLocalStorage = localStorage.getItem('data');
@@ -85,30 +84,35 @@ const WeeklyTables = ({ extractData, data }) => {
         setLocalData(newData);
         extractData(newData);
     };
+
+    const handlePrint = () => {
+        window.print();
+    };
+
     return (
         <div>
-            <div>
-                <div className="Tables" >
-                    {WEEKDAYS.map((weekday) => (
-                        <div key={weekday}>
-                            <Table
-                                key={weekday}
-                                weekday={weekday}
-                                planned={localData[weekday] ? localData[weekday].planned : {}}
-                                actual={localData[weekday] ? localData[weekday].actual : {}}
-                                handleChange={handleChange}
-                            />
-                        </div>
-                    ))}
-                    <div className="buttons" >
-                        <button className="success" onClick={handleSave}>Save</button>
+            <div className="Tables" id="printable">
+                {WEEKDAYS.map((weekday) => (
+                    <div key={weekday}>
+                        <Table
+                            key={weekday}
+                            weekday={weekday}
+                            planned={localData[weekday] ? localData[weekday].planned : {}}
+                            actual={localData[weekday] ? localData[weekday].actual : {}}
+                            handleChange={handleChange}
+                        />
                     </div>
+                ))}
+                <div className="buttons">
+                    <button className="success" onClick={handleSave}>Save</button>
+                    <button className="print" onClick={handlePrint}>Print</button>
                 </div>
             </div>
         </div>
     );
 };
 export default WeeklyTables;
+
 
 
 

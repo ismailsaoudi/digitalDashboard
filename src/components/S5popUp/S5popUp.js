@@ -65,7 +65,7 @@ class S5popUp extends React.Component {
     S5time.setHours(16);
     S5time.setMinutes(0);
     S5time.setSeconds(0);
-    if (S5now.getHours() > 13 || (S5now.getHours() === 16 && S5now.getMinutes() > 0)) {
+    if (S5now.getHours() > 16 || (S5now.getHours() === 16 && S5now.getMinutes() > 0)) {
       S5time.setDate(S5now.getDate() + 1);
     }
     setTimeout(() => {
