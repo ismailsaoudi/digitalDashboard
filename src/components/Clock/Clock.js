@@ -15,7 +15,7 @@ function Clock() {
     }, []);
   
     useEffect(() => {
-      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       setDay(days[time.getDay()]);
     }, [time]);
   
@@ -27,12 +27,13 @@ function Clock() {
   
     return (
       <div className="clock">
-        <div className="Date">
-        {day} {time.toLocaleDateString()}
-        </div>
         <div className="Week">
           Week {week + 1}
         </div>
+        <div className="Date">
+        {day} {time.toLocaleDateString()}
+        </div>
+        
         <div className='Time'>
         {time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
       </div>

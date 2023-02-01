@@ -14,6 +14,7 @@ const customStyles = {
         transform: 'translate(-50%, -50%)',
         textAlign: 'center',
         backgroundColor: 'black'
+        
     },
     h2: {
         textAlign: 'center',
@@ -35,7 +36,7 @@ const customStyles = {
     p: {
 
         textAlign: 'center',
-        fontSize: '9rem',
+        fontSize: '7rem',
         color: '#FDC72E',
         margin: '4rem 0',
     }
@@ -65,8 +66,8 @@ class Alarm extends React.Component {
         const alarmTimes =
             [
                 { hour: 9, minute: 0 },
-                { hour: 12, minute: 15 },
-                { hour: 14, minute: 15 }
+                { hour: 13, minute: 8 },
+                { hour: 14, minute: 28 }
             ];
 
         alarmTimes.forEach(alarmTime => {
