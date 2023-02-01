@@ -9,8 +9,8 @@ import Alarm from "./alarm"
 
 const alarmTimes = [
   '2023-01-31T09:00:00',
-  '2023-01-31T12:00:00',
-  '2023-01-31T17:21:00',
+  '2023-01-31T12:15:00',
+  '2023-01-31T14:10:00',
 ];
 
 const customStyles = {
