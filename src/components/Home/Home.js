@@ -5,8 +5,13 @@ import Modal from 'react-modal';
 import S5popUp from "../S5popUp/S5popUp";
 import alertBreak from '../assets/alertBreak.mp3'
 import "../../style.css";
+import Alarm from "./alarm"
 
-
+const alarmTimes = [
+  '2023-01-31T09:00:00',
+  '2023-01-31T12:00:00',
+  '2023-01-31T17:21:00',
+];
 
 const customStyles = {
   content: {
@@ -96,8 +101,8 @@ function Home() {
 
   return (
     <section>
-     
-        <S5popUp />
+      <Alarm alarmTimes={alarmTimes} />
+      <S5popUp />
       <div>
         <Clock />
       </div>
