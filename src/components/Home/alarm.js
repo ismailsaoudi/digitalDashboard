@@ -66,8 +66,8 @@ class Alarm extends React.Component {
         const alarmTimes =
             [
                 { hour: 9, minute: 0 },
-                { hour: 13, minute: 8 },
-                { hour: 14, minute: 28 }
+                { hour: 12, minute: 15 },
+                { hour: 14, minute: 10 }
             ];
 
         alarmTimes.forEach(alarmTime => {
