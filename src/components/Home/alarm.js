@@ -53,8 +53,10 @@ class Alarm extends React.Component {
     S5openModal() {
         this.setState({ S5modalOpen: true });
         const S5sound = new Audio(alertBreak);
-        S5sound.volume = 1; // set the volume to full
         S5sound.play();
+        setTimeout(() => {
+            this.S5closeModal();
+        }, 180000); // 3 minutes = 3 * 60 * 1000 = 180000 milliseconds
     }
 
     S5closeModal() {
