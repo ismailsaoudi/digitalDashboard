@@ -66,7 +66,7 @@ class S5popUp extends React.Component {
     const Alramnow = new Date();
     const alarmTimes =
         [
-            { hour: 16, minute: 20 },
+            { hour: 16, minute: 30 },
             
             
         ];
