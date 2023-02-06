@@ -28,14 +28,14 @@ const customStyles = {
   },
   h2: {
     textAlign: 'center',
-    fontSize: '10rem',
+    fontSize: '12rem',
     color: '#FDC72E',
     margin: '4rem 0',
   },
   button: {
     display: 'block',
     margin: '2rem auto',
-    fontSize: '2rem',
+    fontSize: '1rem',
     backgroundColor: 'black',
     color: '#FDC72E',
     padding: '1rem 2rem',
