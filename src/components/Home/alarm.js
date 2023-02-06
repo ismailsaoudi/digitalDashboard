@@ -17,10 +17,11 @@ const customStyles = {
         
     },
     h2: {
+
         textAlign: 'center',
-        fontSize: '8rem',
+        fontSize: '10rem',
         color: '#FDC72E',
-        margin: '4rem 0',
+        margin: '4rem 9',
     },
     button: {
         display: 'block',
@@ -34,7 +35,7 @@ const customStyles = {
         cursor: 'pointer',
     },
     p: {
-
+        margin:'0rem',
         textAlign: 'center',
         fontSize: '7rem',
         color: '#FDC72E',
@@ -94,7 +95,7 @@ class Alarm extends React.Component {
                     onRequestClose={this.S5closeModal}
                     style={customStyles}
                 >
-                    <h2 style={customStyles.h2}> LET'S GET BACK TO WORK </h2>
+                    <h2 style={customStyles.h2}> LET'S GET BACK TO WORK !! </h2>
                     <p style={customStyles.p}> &#9889; </p>
                     <button onClick={this.S5closeModal} style={customStyles.button}>
                         Close

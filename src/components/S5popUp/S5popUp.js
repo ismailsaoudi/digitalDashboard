@@ -17,7 +17,7 @@ const customStyles = {
   },
   h2: {
     textAlign: 'center',
-    fontSize: '5rem',
+    fontSize: '8rem',
     color: '#FDC72E',
     margin: '4rem 0',
   },
@@ -35,7 +35,7 @@ const customStyles = {
   p: {
 
     textAlign: 'center',
-    fontSize: '7rem',
+    fontSize: '8rem',
     color: '#FDC72E',
     margin: '4rem 0',
   }
@@ -53,25 +53,37 @@ class S5popUp extends React.Component {
     this.setState({ S5modalOpen: true });
     const S5sound = new Audio(alertBreak);
     S5sound.play();
-  }
+    setTimeout(() => {
+        this.S5closeModal();
+    }, 900000); // 3 minutes = 3 * 60 * 1000 = 180000 milliseconds
+}
 
   S5closeModal() {
     this.setState({ S5modalOpen: false });
   }
 
   componentDidMount() {
-    const S5now = new Date();
-    const S5time = new Date();
-    S5time.setHours(16);
-    S5time.setMinutes(20);
-    S5time.setSeconds(0);
-    if (S5now.getHours() > 16 || (S5now.getHours() === 16 && S5now.getMinutes() > 20)) {
-      S5time.setDate(S5now.getDate() + 1);
-    }
-    setTimeout(() => {
-      this.S5openModal();
-    }, S5time.getTime() - S5now.getTime());
-  }
+    const Alramnow = new Date();
+    const alarmTimes =
+        [
+            { hour: 16, minute: 20 },
+            
+            
+        ];
+
+    alarmTimes.forEach(alarmTime => {
+        const alarmDate = new Date();
+        alarmDate.setHours(alarmTime.hour);
+        alarmDate.setMinutes(alarmTime.minute);
+        alarmDate.setSeconds(0);
+        if (Alramnow.getHours() > alarmTime.hour || (Alramnow.getHours() === alarmTime.hour && Alramnow.getMinutes() > alarmTime.minute)) {
+            alarmDate.setDate(Alramnow.getDate() + 1);
+        }
+        setTimeout(() => {
+            this.S5openModal();
+        }, alarmDate.getTime() - Alramnow.getTime());
+    });
+}
 
   render() {
     return (
@@ -81,7 +93,7 @@ class S5popUp extends React.Component {
           onRequestClose={this.S5closeModal}
           style={customStyles}
         >
-          <h2 style={customStyles.h2}> THANK YOU FOR YOUR HARD WORK  </h2>
+          <h2 style={customStyles.h2}> THANK YOU FOR YOUR HARD WORK !  </h2>
           <h2 style={customStyles.h2}> 5S TIME !  </h2>
           <p style={customStyles.p}> ♻ </p>
           <button onClick={this.S5closeModal} style={customStyles.button}>
