@@ -56,7 +56,7 @@ function Home() {
     audio.play(); // play the sound
     setTimeout(() => {
       setIsOpen(false);
-    }, 840000);
+    }, 900000);
   }
 
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "../../style.css";
 
 function Clock() {
-    const [time, setTime] = useState(new Date());
+    const [time, setTime] = useState(new Date()); 
     const [day, setDay] = useState('');
     const [week, setWeek] = useState(0);
   
